@@ -1,0 +1,37 @@
+QMainWindow {
+	 background-color: qlineargradient(
+		y1: 0, y2: 1, x1:0, x2: 0,
+		stop: 0 rgb(30, 30, 30),
+		stop: 1 rgb(100, 100, 100)
+	 );
+}
+
+QFrame, QTabWidget, QWidget {
+	font-family: "Fira Sans";
+	font-weight: 150;
+	color: rgb(255, 255, 255);
+}
+
+QLabel {		
+	font-size: 20px;
+}
+
+QLabel#title {
+	font-weight: 250;
+	font-size: 40px;
+}
+
+QLabel#titlelight {
+	font-weight: 150;
+	font-size: 40px;
+}
+
+.QLabel#header {
+	font-size: 24px;
+	font-weight: 200;
+}
+
+TaurusLabel {
+	font-weight: 300;
+	color: rgb(30, 30, 30);
+}

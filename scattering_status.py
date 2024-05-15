@@ -10,21 +10,8 @@ from taurus.qt.qtgui.compact.basicswitcher import TaurusLabelEditRW, TaurusBoolR
 import taurus
 from pathlib import Path
 
-door = 'Door/qttesting/1'
-macroserver = 'Macroserver/qttesting/1'
-
-motors = [
-    "motor/motctrl01/1",
-    "motor/motctrl01/2",
-    "motor/motctrl01/3",
-    "motor/motctrl01/4",
-    ]
-counters = [
-    "expchan/ctctrl01/1",
-    "expchan/ctctrl01/2",
-    "expchan/ctctrl01/3",
-    "expchan/ctctrl01/4",
-    ]
+door = 'Door/scattering/1'
+macroserver = 'Macroserver/scattering/1'
 
 def main():
 
@@ -156,12 +143,12 @@ def main():
     
     form_tv = TaurusForm(withButtons=False)
     form_tv.setModifiableByUser(False)
-    form_tv.setModel(data['Motor'] + data['PseudoMotor'])
+    form_tv.setModel(data['Motor']) # + data['PseudoMotor'])
     page_overview_layout.addWidget(form_tv, 0, 0)
 
     form_tv = TaurusForm(withButtons=False)
     form_tv.setModifiableByUser(False)
-    form_tv.setModel(data['CTExpChannel'] + data['ZeroDExpChannel'])
+    form_tv.setModel(data['CTExpChannel']) # + data['ZeroDExpChannel'])
     page_overview_layout.addWidget(form_tv, 0, 1)
     
     page_showscan = Qt.QWidget(tab)
