@@ -115,6 +115,7 @@ class Window(Qt.QMainWindow):
             w.setModel(g[1] + '/pressure')
             w.setAlignment(Qt.Qt.AlignRight | Qt.Qt.AlignVCenter)
             w.setFormat('{:3.1e}')
+            w.setMinimumWidth(150)
 
             l = Qt.QLabel(g[0])
             l.setAlignment(Qt.Qt.AlignRight)
@@ -180,7 +181,7 @@ class Window(Qt.QMainWindow):
         tdlTrend.setModel(['thindisk/coherentpem/energymax/value'])
         tdlTrend.setBackground(background='#222222')
         tdlTrend.setMaxDataBufferSize(1000)
-        tdlTrend.setForcedReadingPeriod(500)
+        #tdlTrend.setForcedReadingPeriod(500)
 
         # TiSa
         tisaLabel = Qt.QLabel("TiSa Laser")
@@ -205,7 +206,7 @@ class Window(Qt.QMainWindow):
         tisaTrend.setModel(['tisa/coherentlabmaxtop/compressor/value'])
         tisaTrend.setBackground(background='#222222ff')
         tisaTrend.setMaxDataBufferSize(1000)
-        tisaTrend.setForcedReadingPeriod(500)
+        #tisaTrend.setForcedReadingPeriod(500)
 
         #  
 
