@@ -207,7 +207,7 @@ class Window(Qt.QMainWindow):
         tisaTrend.setMaxDataBufferSize(1000)
         tisaTrend.setForcedReadingPeriod(500)
 
-        # 
+        #  
 
         laserWidget = Qt.QWidget(self)
         laserLayout = Qt.QGridLayout(laserWidget)
