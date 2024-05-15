@@ -115,7 +115,7 @@ class Window(Qt.QMainWindow):
             w.setModel(g[1] + '/pressure')
             w.setAlignment(Qt.Qt.AlignRight | Qt.Qt.AlignVCenter)
             w.setFormat('{:3.1e}')
-            w.setMinimumWidth(150)
+            w.setMinimumWidth(200)
 
             l = Qt.QLabel(g[0])
             l.setAlignment(Qt.Qt.AlignRight)
