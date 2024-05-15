@@ -1,13 +1,10 @@
+#!/usr/bin/python3 -u
+# coding: utf8
+
 import sys
 from taurus.external.qt import Qt
 from taurus.qt.qtgui.application import TaurusApplication
-# from taurus.qt.qtgui.panel import TaurusForm
 from taurus.qt.qtgui.display import TaurusLabel, TaurusLed
-# from taurus.qt.qtgui.button import TaurusCommandButton
-# from taurus.qt.qtgui.input import TaurusValueSpinBox, TaurusValueLineEdit, TaurusValueCheckBox
-# from taurus.core.util.colors import DEVICE_STATE_DATA
-# from taurus.qt.qtgui.compact.basicswitcher import TaurusLabelEditRW, TaurusBoolRW
-# import taurus
 from pathlib import Path
 from PyQt5 import QtSvg
 
@@ -19,8 +16,8 @@ class Window(Qt.QMainWindow):
         super(Window, self).__init__(parent)
         self.setWindowTitle('SXR Lab Status')
         self.setWindowIcon(Qt.QIcon('mbi-logo.png'))
-        self.setMinimumSize(1400, 800)
-        self.setStyleSheet(Path('mbi-styles.qss').read_text())
+        self.setMinimumSize(1400, 800)        
+        self.setStyleSheet(Path(Path(__file__).parent / 'mbi-styles.qss').read_text())
 
 
         ### header
