@@ -11,15 +11,14 @@ from PyQt5 import QtSvg
 from taurus_pyqtgraph import TaurusTrend
 
 
-class Window(Qt.QMainWindow):
+class StatusScreen(Qt.QMainWindow):
     def __init__(self,parent=None):
-        super(Window, self).__init__(parent)
+        super(StatusScreen, self).__init__(parent)
         self.setWindowTitle('SXR Lab Status')
         self.setWindowIcon(Qt.QIcon('mbi-logo.png'))
         self.setMinimumSize(1400, 800)        
         self.setStyleSheet(Path(Path(__file__).parent / 'mbi-styles.qss').read_text())
-
-
+        
         ### header
         # title
         title = Qt.QLabel("SXR Lab Status")
@@ -252,6 +251,6 @@ class Window(Qt.QMainWindow):
 
 if __name__ == '__main__':
     app = TaurusApplication(sys.argv, cmd_line_parser=None, app_name='SXR Lab Status')
-    window = Window()
+    window = StatusScreen()
     window.show()
     sys.exit(app.exec_())
