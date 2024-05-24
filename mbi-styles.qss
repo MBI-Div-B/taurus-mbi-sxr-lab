@@ -12,7 +12,13 @@ QFrame, QTabWidget, QWidget {
 	color: rgb(255, 255, 255);
 }
 
-QLabel {		
+QPushButton {
+	font-family: "Fira Sans";
+	font-weight: 250;
+	color: rgb(0, 0, 0);
+}
+
+QLabel, QPushButton {		
 	font-size: 20px;
 }
 
