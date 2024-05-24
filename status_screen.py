@@ -16,7 +16,8 @@ class StatusScreen(Qt.QMainWindow):
         super(StatusScreen, self).__init__(parent)
         self.setWindowTitle('SXR Lab Status')
         self.setWindowIcon(Qt.QIcon('mbi-logo.png'))
-        self.setMinimumSize(1400, 800)        
+        self.setMinimumSize(1400, 800)    
+        Qt.QFontDatabase.addApplicationFont('./resources/FiraSans-Regular.tff')    
         self.setStyleSheet(Path(Path(__file__).parent / 'mbi-styles.qss').read_text())
         
         ### header
@@ -34,7 +35,7 @@ class StatusScreen(Qt.QMainWindow):
         self.timer.timeout.connect(self.showTime)
         self.timer.start(1000)
         # logo 
-        svgWidget = QtSvg.QSvgWidget('mbi-logo.svg')
+        svgWidget = QtSvg.QSvgWidget('resources/mbi-logo.svg')
         svgWidget.setFixedWidth(100)
         svgWidget.setFixedHeight(68)
 

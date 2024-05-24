@@ -16,7 +16,7 @@ class Entry(Qt.QMainWindow):
         self.setWindowTitle('SXR Lab Entry')
         self.setWindowIcon(Qt.QIcon('mbi-logo.png'))
         self.setFixedSize(800, 600)        
-        # Qt.QFontDatabase.addApplicationFont('./FiraSans-Regular.tff')
+        Qt.QFontDatabase.addApplicationFont('./resources/FiraSans-Regular.tff')
         self.setStyleSheet(Path(Path(__file__).parent / 'mbi-styles.qss').read_text())
         
 
@@ -33,7 +33,7 @@ class Entry(Qt.QMainWindow):
         title.setSizePolicy(Qt.QSizePolicy.Expanding, Qt.QSizePolicy.Minimum)
         
         # logo 
-        svgWidget = QtSvg.QSvgWidget('mbi-logo.svg')
+        svgWidget = QtSvg.QSvgWidget('resources/mbi-logo.svg')
         svgWidget.setFixedWidth(100)
         svgWidget.setFixedHeight(68)
 
@@ -76,7 +76,8 @@ class NotImplemented(Qt.QMainWindow):
         super(NotImplemented, self).__init__(parent)
         self.setWindowTitle('Not Implemented')
         self.setWindowIcon(Qt.QIcon('mbi-logo.png'))
-        self.setFixedSize(300, 100)        
+        self.setFixedSize(300, 100)
+        Qt.QFontDatabase.addApplicationFont('./resources/FiraSans-Regular.tff')
         self.setStyleSheet(Path(Path(__file__).parent / 'mbi-styles.qss').read_text())
         
         label = Qt.QLabel("Not Implemented")
@@ -88,7 +89,8 @@ class Raspis(Qt.QMainWindow):
         super(Raspis, self).__init__(parent)
         self.setWindowTitle('Raspis')
         self.setWindowIcon(Qt.QIcon('mbi-logo.png'))
-        self.setFixedSize(800, 600)        
+        self.setFixedSize(800, 600)
+        Qt.QFontDatabase.addApplicationFont('./resources/FiraSans-Regular.tff')
         self.setStyleSheet(Path(Path(__file__).parent / 'mbi-styles.qss').read_text())
                 
         centralWidget = Qt.QWidget(self)
