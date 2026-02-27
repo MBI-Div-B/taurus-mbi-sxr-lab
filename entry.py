@@ -115,26 +115,25 @@ class Raspis(Qt.QMainWindow):
 
         tabs = Qt.QTabWidget()
 
-        tab1 = Qt.QWidget() 
-        tab2 = Qt.QWidget() 
-        tab3 = Qt.QWidget()
-  
-        # Add tabs 
-        tabs.addTab(tab1, "Geeks") 
-        tabs.addTab(tab2, "For") 
-        tabs.addTab(tab3, "Geeks") 
-  
-        # Create first tab 
-        tab1.layout = Qt.QVBoxLayout(self) 
-        l = Qt.QLabel() 
-        l.setText("This is the first tab") 
-        tab1.layout.addWidget(l) 
-        tab1.setLayout(tab1.layout) 
+        pis = ['Raspi1', 'Raspi2', 'Raspi3']
 
-        centralLayout.addWidget(tabs, 1, 0, 1, 2)
-        
+        for p in pis:
+            tabs.addTab(Raspi(p), p) 
+
+        centralLayout.addWidget(tabs, 1, 0, 1, 2)       
 
         self.setCentralWidget(centralWidget)
+
+class Raspi(Qt.QWidget):
+    def __init__(self, fqdn='', parent=None):
+        super(Raspi, self).__init__(parent)
+        l = Qt.QLabel() 
+        l.setText(fqdn) 
+        self.layout = Qt.QVBoxLayout(self)
+        self.layout.addWidget(l) 
+        
+    
+
 
 if __name__ == '__main__':
     app = TaurusApplication(sys.argv, cmd_line_parser=None, app_name='SXR Entry')

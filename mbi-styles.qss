@@ -41,3 +41,16 @@ TaurusLabel {
 	font-weight: 300;
 	color: rgb(30, 30, 30);
 }
+
+QTabWidget::pane {
+    background: rgb(30, 30, 30);
+    border: 1px solid black;
+}
+
+QTabBar::tab:selected {
+    background: rgb(30, 30, 30);
+}
+
+QTabBar::tab:!selected {
+    background: rgb(20, 20, 20);
+}
