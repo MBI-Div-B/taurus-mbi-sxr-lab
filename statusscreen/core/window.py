@@ -1,7 +1,6 @@
-#!/usr/bin/python3 -u
-# coding: utf8
+# core/window.py
+from .panel import HeaderWidget
 
-# import sys
 from taurus.external.qt import Qt
 # from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.display import TaurusLabel, TaurusLed
@@ -30,32 +29,14 @@ class BaseWindow(Qt.QMainWindow):
 
         self.setWindowIcon(Qt.QIcon(str(base_dir / 'styles' / 'mbi-logo.png')))
 
-
-        ### header
-        # title
-        title = Qt.QLabel("SXR Lab Status")
-        title.setFont(Qt.QFont('Fira Sans', 40))
-        title.setObjectName("title")
-        title.setFixedWidth(450)
-        # clock
-        self.clock = Qt.QLabel('dddd yyyy-MM-dd - hh:mm:ss')
-        self.clock.setObjectName("titlelight")
-        self.clock.setSizePolicy(Qt.QSizePolicy.Expanding, Qt.QSizePolicy.Minimum)
-        # connect timer for clock
-        self.timer=Qt.QTimer()
-        self.timer.timeout.connect(self.showTime)
-        self.timer.start(1000)
-        # logo 
-        svgWidget = QtSvg.QSvgWidget('resources/mbi-logo.svg')
-        svgWidget.setFixedWidth(100)
-        svgWidget.setFixedHeight(68)
-
-        headerWidget = Qt.QWidget(self)
-        headerLayout = Qt.QHBoxLayout(headerWidget)
-
-        headerLayout.addWidget(title)
-        headerLayout.addWidget(self.clock)
-        headerLayout.addWidget(svgWidget)
+        # set base layout to align the panels
+        central = Qt.QWidget()
+        self.central_layout = Qt.QVBoxLayout(central)
+        self.setCentralWidget(central)
+        
+        # add panels
+        self.header = HeaderWidget()
+        self.central_layout.addWidget(self.header)
 
         ### environment vacuum
 
@@ -243,17 +224,17 @@ class BaseWindow(Qt.QMainWindow):
         laserLayout.addWidget(tisaTrend, 5, 2, 1, 2)
 
         ### central
-        centralWidget = Qt.QWidget(self)
-        centralLayout = Qt.QVBoxLayout(centralWidget)
-        centralLayout.addWidget(headerWidget)
-        centralLayout.addWidget(envvacWidget)
-        centralLayout.addWidget(laserWidget)
+        #centralWidget = Qt.QWidget(self)
+        #centralLayout = Qt.QVBoxLayout(centralWidget)
+        #self.central_layout.addWidget(self.header)
+        self.central_layout.addWidget(envvacWidget)
+        self.central_layout.addWidget(laserWidget)
 
-        centralLayout.setAlignment(Qt.Qt.AlignTop)
+        self.central_layout.setAlignment(Qt.Qt.AlignTop)
 
 
         # Set the central widget of the Window.
-        self.setCentralWidget(centralWidget)
+        # self.setCentralWidget(self.centralWidget)
         
     def showTime(self):
         current_time=Qt.QDateTime.currentDateTime()
