@@ -4,7 +4,7 @@ Based on Taurus status screen to display crucial parameters in control room of S
 
 ## Structure and Use
 
-statusscreen/  
+```statusscreen/  
 |--main.py  
 |--core/  
     |--window.py  
@@ -18,7 +18,7 @@ statusscreen/
     |--lab.yaml  
     |--lab_screen01.yaml  
     |--lab_screen02.yaml  
-
+```
 ### Development  
 
 - main.py builds the Taurus Application  
