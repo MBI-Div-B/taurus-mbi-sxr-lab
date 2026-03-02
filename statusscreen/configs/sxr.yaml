@@ -1,0 +1,55 @@
+# configs/sxr.yaml
+
+app_name: 'SXR Lab Status'
+lab_name: 'SXR Lab'
+
+# environment sensors
+# just domain/family/member
+environment:
+  - name: 'Pumps'
+    model: 'lab/environment/pumps'
+  - name: 'Beamlines'
+    model: 'sxr/environment/beamlines'
+  - name: 'PXS'
+    model: 'sxr/environment/pxs'
+  - name: 'TDL Frontend'
+    model: 'laser/environment/frontend'
+  - name: 'TDL Amplifier'
+    model: 'laser/environment/thindisk'
+  - name: 'Compressor'
+    model: 'laser/environment/compressor'
+  - name: 'TiSa'
+    model: 'laser/environment/tisa'
+
+# vacuum gauges
+# just domain/family/member
+vacuum:
+  - name: 'PXS'
+    model: 'sxr/tpg261/pxs'
+  - name: 'RZP'
+    model: 'rsxs/tpg261/rzp'
+  - name: 'Scattering'
+    model: 'rsxs/tpg261/scattering'
+  - name: 'Optics'
+    model: 'spec/tpg261/optic'
+  - name: 'CCD'
+    model: 'spec/tpg261/ccd'
+
+# laser readings
+lasers:
+  - name: 'Door TDL'
+    model: 'lab/rpigpio/laserpi/door_tdl'
+  - name: 'Door TiSa'
+    model: 'lab/rpigpio/laserpi/door_tisa'
+  - name: 'Shutter TDL'
+    model: 'lab/rpigpio/laserpi/shutter_tdl'
+  - name: 'Shutter TiSa'
+    model: 'lab/rpigpio/laserpi/shutter_tisa'
+  - name: 'Waveplate'
+    model: 'thindisk/agilisagp/power/position'
+  - name: 'TDL Energy'
+    model: 'thindisk/coherentpem/energymax/value'
+  - name: 'TDL Power'
+    model: 'thindisk/thorlabspm100/regen/power'
+  - name: 'TiSa Energy'
+    model: 'tisa/coherentlabmaxtop/compressor/value'

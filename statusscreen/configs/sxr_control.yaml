@@ -1,0 +1,32 @@
+# configs/lab_control.yaml
+
+window:
+  name: 'SXR Lab Status control'
+  title: 'SXR Lab Status control'
+
+# select which environment sensors to show, select order here
+environment_display:
+  - 'Pumps'
+  - 'Beamlines'
+  - 'PXS'
+  - 'TDL Frontend'
+  - 'Compressor'
+  - 'TDL Amplifier'
+  - 'TiSa'
+
+vacuum_display:
+  - 'PXS'
+  - 'RZP'
+  - 'Optics'
+  - 'Scattering'
+  - 'CCD'
+
+laser_display:
+  - 'Interlock'
+  - 'Shutter TDL'
+  - 'Shutter TiSa'
+  - 'Waveplate'
+  - 'TDL Energy'
+  - 'TiSa Energy'
+
+# add panel order?

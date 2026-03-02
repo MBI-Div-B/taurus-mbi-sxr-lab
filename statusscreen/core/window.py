@@ -1,5 +1,6 @@
 # core/window.py
 from .panel import HeaderWidget, EnvironmentPanel, VacuumPanel, LaserPanel
+from .utils import select_attributes
 
 from taurus.external.qt import Qt
 # from taurus.qt.qtgui.application import TaurusApplication
@@ -11,9 +12,17 @@ from pathlib import Path
 
 
 class BaseWindow(Qt.QMainWindow):
-    def __init__(self, parent=None):
+    def __init__(self, lab_config, screen_config, parent=None):
         super().__init__(parent)
-        self.setWindowTitle('SXR Lab Status')
+        self.lab_config = lab_config
+        self.screen_config = screen_config
+
+        self.env_attrs = select_attributes(
+            lab_config['environment'],
+            screen_config.get('environment_display', [])
+        )
+
+        self.setWindowTitle(self.screen_config['window']['title'])
         self.setMinimumSize(1400, 800)    
         
         # load MBI fonts
@@ -39,7 +48,7 @@ class BaseWindow(Qt.QMainWindow):
         self.header = HeaderWidget()
         self.central_layout.addWidget(self.header)
 
-        env_panel = EnvironmentPanel()
+        env_panel = EnvironmentPanel(self.env_attrs)
         vac_panel = VacuumPanel()
 
         envvac_widget = Qt.QWidget()
@@ -55,8 +64,4 @@ class BaseWindow(Qt.QMainWindow):
         self.central_layout.addWidget(self.laser)
 
         self.central_layout.setAlignment(Qt.Qt.AlignTop)
-
-
-        # Set the central widget of the Window.
-        # self.setCentralWidget(self.centralWidget)
         

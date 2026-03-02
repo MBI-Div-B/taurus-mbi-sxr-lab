@@ -44,22 +44,33 @@ class HeaderWidget(Qt.QWidget):
     def update_time(self):
         self.clock.setText(Qt.QDateTime.currentDateTime().toString('dddd dd.MM.yyyy - hh:mm:ss'))
 
-from taurus.external.qt import Qt
-from taurus.qt.qtgui.display import TaurusLabel
-
 class EnvironmentPanel(Qt.QWidget):
-    def __init__(self, title='Environment', parent=None):
+    def __init__(self, attributes, title='Environment', parent=None):
         super().__init__(parent)
 
         # Main grid
         layout = Qt.QGridLayout(self)
         layout.setAlignment(Qt.Qt.AlignTop)
+        self.setLayout(layout)
 
         # Header
         header_label = Qt.QLabel(title)
         header_label.setObjectName('header')
         layout.addWidget(header_label, 0, 0)
 
+        for i, attr in enumerate(attributes, start=1):
+            name_label = Qt.QLabel(attr['name'])
+            # name_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+            sensor_display = TaurusLabel()
+            sensor_display.setModel(attr['model'] + '/temperature')
+            # sensor_display.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+            layout.addWidget(name_label, i, 0)
+            layout.addWidget(sensor_display, i, 1)
+
+
+'''
         # Sensors
         sensors = [
             ['Pumps', 'lab/environment/pumps', (1, 0)],
@@ -81,7 +92,7 @@ class EnvironmentPanel(Qt.QWidget):
             t.setAlignment(Qt.Qt.AlignRight | Qt.Qt.AlignVCenter)
             layout.addWidget(l, s[2][0], s[2][1])
             layout.addWidget(t, s[2][0], s[2][1]+1)
-
+'''
 class VacuumPanel(Qt.QWidget):
     def __init__(self, title='Vacuum', parent=None):
         super().__init__(parent)
